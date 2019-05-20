@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(version: 20190521021109) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.bigint "image_file_size"
+    t.datetime "image_updated_at"
   end
 
 end
