@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  resources :categories
+  namespace :admin do
+    resources :categories
+  end
 end
