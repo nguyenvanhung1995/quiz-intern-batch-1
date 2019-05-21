@@ -1,14 +1,12 @@
 <h1>All Category</h1>
-
 <ul class="categories">
 	<ol>
-  <% @categories.each do |category| %>
- 
-    <li>
-      <%= link_to category.name, category %>
-    </li>
-  <% end %>
-  </ol>
-  <br>
-  <%= link_to "Create new category", new_category_path %>
+		<% @categories.each do |category| %>
+		<li>
+			<%= link_to category.name, category %>
+		</li>
+		<% end %>
+	</ol>
+	<br>
+	<% #=link_to "Create new category", new_category_path %>
 </ul>
