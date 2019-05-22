@@ -1,0 +1,10 @@
+<h1>List category</h1>
+<ul class="categories">
+  <ol>
+    <% @categories.each do |category| %>
+      <li>
+        <%= category.name %>
+      </li>
+    <% end %>
+  </ol>
+</ul>
