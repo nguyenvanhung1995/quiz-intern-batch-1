@@ -15,6 +15,7 @@ gem "bootstrap-sass", "~> 3.4", ">= 3.4.1"
 gem "jquery-rails", "~> 4.3", ">= 4.3.3"
 gem "paperclip", "~> 6.1"
 gem "font-awesome-sass", "~> 5.8.1"
+gem "faker",          "1.7.3"
 
 gem "coffee-rails", "~> 4.2"
 gem "turbolinks", "~> 5"
@@ -36,5 +37,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem "bootstrap-sass", "3.3.7"
-gem "faker",          "1.7.3"
