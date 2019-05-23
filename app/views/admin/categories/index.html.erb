@@ -1,13 +1,21 @@
 <h1>List category</h1>
-<ul class="categories">
-  <ol>
-    <% @categories.each do |category| %>
-      <li>
-        <%= category.name %>
-        <%= link_to "Edit", edit_admin_category_path(category) %>
-        <%= link_to "Delete", admin_category_path(category), method: :delete, data: { confirm: "You sure?" } %>
-      </li>
-    <% end %>
-  </ol>
-</ul>
-<%= link_to "New category", new_admin_category_path %>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th>Category</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.id %></td>
+          <td><%= category.name %></td>
+          <td><i class="fas fa-tools"></i></td>
+          <td><i class="far fa-trash-alt"></i></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
