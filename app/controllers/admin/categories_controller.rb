@@ -14,21 +14,20 @@ class Admin::CategoriesController < ApplicationController
       flash[:success] = "Added new category success!"
       redirect_to admin_categories_path
     else
-      render 'new'
+      render "new"
     end
   end
 
   def edit
-    @category
   end
 
   def update
-    @category_old_name = @category.name
+    category_old_name = @category.name
     if @category.update_attributes(category_params)
-      flash[:success] = "Changed from #{@category_old_name}  to new name #{@category.name} success!"
+      flash[:success] = "Changed from #{category_old_name} to new name #{@category.name} success!"
       redirect_to admin_categories_path
     else
-      render 'edit'
+      render "edit"
     end
   end
 
