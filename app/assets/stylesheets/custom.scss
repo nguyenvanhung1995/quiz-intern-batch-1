@@ -132,6 +132,33 @@ html {
 }
 // ===================== End Radio button ============================
 
+// ================ Image upload file button ==================
+.picture {
+  opacity: 0;
+}
+
+.upload_button {
+  width: 9vw;
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 1px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 10px;
+
+  label{
+    margin-bottom: 0px;
+  }
+}
+
+input#question_image.picture {
+  display: none !important;
+}
+
+// ================ Error message ===============
+
 #error_explanation {
   color: red;
   ul {
@@ -146,4 +173,3 @@ html {
     color: $state-danger-text;
   }
 }
-// ===========================================================

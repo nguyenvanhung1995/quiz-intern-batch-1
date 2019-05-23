@@ -1,19 +1,28 @@
-<h1 align="center"><%= yield :title %></h1>
+<h1 align="center"><%= title %></h1>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for [:admin, @question] do |f| %>
+    <%= form_for [:admin, @question], html: { multipart: true } do |f| %>
       <%= render "shared/error_messages", object: f.object %>
       <%= f.label :category, "Category" %>
       <%= f.select :category_id, Category.pluck(:name, :id), {}, class: "form-control" %><br>
       <%= f.label :content, "Question" %>
       <%= f.text_area :content, class: "form-control"%><br>
+      <% if @question.image? %>
+        <%= image_tag @question.image.thumb.url %>
+      <% end %><br>
+      <div class="upload_button mt-2">
+        <%= f.label :image, "Choose image" %>
+        <%= f.file_field :image, class: "picture", accept: "image/jpeg,image/gif,image/png" %>
+      </div>
+      <%= f.hidden_field :image_cache %><br>
       <%= f.fields_for :answers do |builder| %>
         <%= builder.label :content, "Answer" %>
-        <%= builder.label :is_correct, "Correct Answer", style: "float: right; margin-left: 10px;" %>
+        <%= builder.label :is_correct, "Correct Answer", 
+          style: "float: right; margin-left: 10px;" %>
         <%= builder.check_box :is_correct, style: "float: right" %>
         <%= builder.text_area :content, class: "form-control" %><br>
       <% end %>
-      <%= f.submit (yield :button), class: "form-control btn btn-success" %>
+      <%= f.submit button, class: "form-control btn btn-success" %>
     <% end %>
   </div>
 </div>

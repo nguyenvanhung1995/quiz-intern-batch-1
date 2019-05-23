@@ -14,13 +14,10 @@ class Admin::QuestionsController < ApplicationController
 
   def create
     @question = Question.new question_params
-    if check_correct
-      if @question.save
-        flash[:success] = "Create question success!"
-        redirect_to admin_questions_path
-      else
-        render :new
-      end
+    if @question.valid? && check_correct
+      @question.save
+      flash[:success] = "Create question success!"
+      redirect_to admin_questions_path
     else
       flash.now[:danger] = "The question has only one answer!"
       render :new
@@ -30,7 +27,9 @@ class Admin::QuestionsController < ApplicationController
   def edit; end
 
   def update
-    if check_correct && @question.update_attributes(question_params)
+    @question.assign_attributes(question_params)
+    if check_correct && @question.valid?
+      @question.save
       flash[:success] = "Update question success!"
       redirect_to admin_questions_path
     else
@@ -49,8 +48,8 @@ class Admin::QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit :content, :image, :category_id, 
-      answers_attributes: [:id, :content, :is_correct]
+    params.require(:question).permit :content, :image, :image_cache, 
+      :category_id, answers_attributes: [:id, :content, :is_correct]
   end
 
   def get_question
