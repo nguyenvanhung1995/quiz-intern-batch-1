@@ -1,13 +1,31 @@
-<h1>List category</h1>
-<ul class="categories">
-  <ol>
-    <% @categories.each do |category| %>
-      <li>
-        <%= category.name %>
-        <%= link_to "Edit", edit_admin_category_path(category) %>
-        <%= link_to "Delete", admin_category_path(category), method: :delete, data: { confirm: "You sure?" } %>
-      </li>
-    <% end %>
-  </ol>
-</ul>
-<%= link_to "New category", new_admin_category_path %>
+<h1 align="center">Categories List</h1>
+<div class="row col-lg-8 col-lg-offset-2">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.name %></td>
+          <td>
+            <%= link_to edit_admin_category_path(category) do %>
+              <i class="fas fa-tools"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to admin_category_path(category), method: :delete, data: { confirm: "You sure?" } do %>
+              <i class="far fa-trash-alt" style="color: red;"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <%= link_to "New category", new_admin_category_path, class: "form-control btn btn-success" %>
+</div>
