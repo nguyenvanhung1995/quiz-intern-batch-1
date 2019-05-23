@@ -22,7 +22,7 @@
             <% end %>
           </td>
           <td>
-            <%= link_to admin_question_path(question), method: :delete do %>
+            <%= link_to admin_question_path(question), method: :delete, data: { confirm: "You sure?" } do %>
               <i class="far fa-trash-alt"></i>
             <% end %>
           </td>
