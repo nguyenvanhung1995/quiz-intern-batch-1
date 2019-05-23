@@ -1,4 +1,5 @@
 class Admin::CategoriesController < ApplicationController
+  before_action :find_category, only: [:edit, :update, :destroy]
   def index
     @categories = Category.all
   end
@@ -18,11 +19,10 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def edit
-    @category = Category.find(params[:id])
+    @category
   end
 
   def update
-    @category = Category.find(params[:id])
     @category_old_name = @category.name
     if @category.update_attributes(category_params)
       flash[:success] = "Changed from #{@category_old_name}  to new name #{@category.name} success!"
@@ -33,7 +33,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
-    Category.find(params[:id]).destroy
+    @category.destroy
     flash[:success] = "Category deleted"
     redirect_to admin_categories_path
   end
@@ -42,5 +42,9 @@ class Admin::CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name)
+  end
+
+  def find_category
+    @category = Category.find(params[:id])
   end
 end
