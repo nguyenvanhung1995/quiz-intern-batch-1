@@ -16,8 +16,11 @@ end
 end
 28.times do |n|
   password = "password"
-  User.create!(name:  Faker::Name.name,
-               email: "example#{n+1}@gmail.com",
-               password:              password,
-               password_confirmation: password)
+  User.create!(
+    name:  Faker::Name.name,
+    birthday: Time.now,
+    address: Faker::Address.full_address,
+    email: Faker::Internet.email,
+    password: password,
+    password_confirmation: password)
 end
