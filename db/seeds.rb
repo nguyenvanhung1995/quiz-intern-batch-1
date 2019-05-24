@@ -1,11 +1,12 @@
-10.times do |n|
+3.times do |n|
   name = Faker::Name.name
   Category.create!(name: name)
 end
 
-15.times do |n|
+category_ids = Category.pluck(:id)
+20.times do |n|
   content = Faker::Lorem.sentence
-  category_id = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].sample
+  category_id = category_ids.sample
   question = Question.create!(content:  content,
                               category_id: category_id)
 
@@ -14,6 +15,7 @@ end
   end
   question.answers.create!(content: Faker::Lorem.sentence, is_correct: true)
 end
+
 28.times do |n|
   password = "password"
   User.create!(
@@ -23,4 +25,22 @@ end
     email: Faker::Internet.email,
     password: password,
     password_confirmation: password)
+
+user_ids = User.pluck(:id)
+categories = Category.select{|category| category.questions.size >= 5}
+10.times do |n|
+  user_id = user_ids.sample
+  test = Test.create!(user_id: user_id)
+
+  category = categories.sample
+  result = 0
+  5.times do
+    question = category.questions.sample
+    answer = question.answers.sample
+    if answer.is_correct then result += 1 end
+    DetailTest.create!(question_id: question.id,
+                       test_id: test.id,
+                       answer_id: answer.id)
+  end
+  test.update!(result: result)
 end

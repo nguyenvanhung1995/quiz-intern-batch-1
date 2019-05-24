@@ -9,7 +9,6 @@ class Question < ApplicationRecord
 
   validates :content, presence: true
   validate :image_size
-  validates :image, presence: true
 
   private
 
