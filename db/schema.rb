@@ -27,6 +27,16 @@ ActiveRecord::Schema.define(version: 20190524040022) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "detail_tests", force: :cascade do |t|
+    t.integer "question_id"
+    t.integer "test_id"
+    t.integer "answer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_detail_tests_on_question_id"
+    t.index ["test_id"], name: "index_detail_tests_on_test_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.integer "category_id"
     t.text "content"
@@ -47,4 +57,10 @@ ActiveRecord::Schema.define(version: 20190524040022) do
     t.string "password_digest"
   end
 
+  create_table "tests", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 end
