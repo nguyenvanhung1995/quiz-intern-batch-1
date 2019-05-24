@@ -14,3 +14,10 @@ end
   end
   question.answers.create!(content: Faker::Lorem.sentence, is_correct: true)
 end
+28.times do |n|
+  password = "password"
+  User.create!(name:  Faker::Name.name,
+               email: "example#{n+1}@gmail.com",
+               password:              password,
+               password_confirmation: password)
+end
