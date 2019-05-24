@@ -1,5 +1,6 @@
 class Question < ApplicationRecord
   belongs_to :category
+
   has_many :answers, dependent: :destroy, inverse_of: :question
   accepts_nested_attributes_for :answers
   mount_uploader :image, PictureUploader
