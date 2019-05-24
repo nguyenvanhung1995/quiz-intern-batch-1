@@ -18,6 +18,7 @@ gem "font-awesome-sass", "~> 5.8.1"
 gem "faker",          "1.7.3"
 gem "carrierwave", "~> 1.3", ">= 1.3.1"
 gem "mini_magick", "~> 4.9", ">= 4.9.3"
+gem "bcrypt",         "3.1.12"
 
 gem "coffee-rails", "~> 4.2"
 gem "turbolinks", "~> 5"
