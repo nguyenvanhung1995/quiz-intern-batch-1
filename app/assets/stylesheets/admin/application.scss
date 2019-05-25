@@ -1,0 +1,53 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require ./lib/animate
+ *= require ./lib/light-bootstrap-dashboard
+ *= require ./lib/demo
+ *= require ./lib/roboto-font
+ *= require ./lib/pe-icon-7-stroke
+ *= require_self
+ *= require_tree .
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: rgba(0, 205, 102, 0.1);
+}
+
+// ================ Image upload file button ==================
+.picture {
+  opacity: 0;
+}
+
+.upload_button {
+  width: 9vw;
+  border: 2px solid gray;
+  color: gray;
+  background-color: white;
+  padding: 1px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 10px;
+
+  label{
+    margin-bottom: 0px;
+  }
+}
+
+input#question_image.picture {
+  display: none !important;
+}

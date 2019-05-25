@@ -1,6 +1,6 @@
-class Admin::TestsController < ApplicationController
+class Admin::TestsController < Admin::BaseController
   def index
-    @tests = Test.all
+    @tests = Test.all.paginate(page: params[:page], per_page: 10)
   end
 
   def show

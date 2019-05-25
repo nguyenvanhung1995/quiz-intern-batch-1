@@ -1,24 +1,39 @@
-<table class="table table-hover table-bordered" align="center" style="width: 50%;">
-  <thead>
-    <tr>
-      <th>Question</th>
-      <th>Answer</th>
-      <th>Result</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @test.detail_tests.each do |dt| %>
-      <tr>
-        <td><%= dt.question.content%></td>
-        <td><%= dt.answer.content %></td>
-        <td>
-          <% if dt.answer.is_correct %>
-            True
-          <% else %>
-            False
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <p>User: <%= @test.user.name %></p>
+          </div>
+          <div class="content table-full-width">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Question</th>
+                  <th>Answer</th>
+                  <th>Result</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @test.detail_tests.each do |dt| %>
+                  <tr>
+                    <td><%= dt.question.content%></td>
+                    <td><%= dt.answer.content %></td>
+                    <td>
+                      <% if dt.answer.is_correct %>
+                        True
+                      <% else %>
+                        False
+                      <% end %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

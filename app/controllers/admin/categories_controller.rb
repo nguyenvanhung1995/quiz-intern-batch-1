@@ -1,7 +1,7 @@
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController < Admin::BaseController
   before_action :find_category, only: [:edit, :update, :destroy]
   def index
-    @categories = Category.all
+    @categories = Category.all.paginate(page: params[:page], per_page: 10)
   end
 
   def new
