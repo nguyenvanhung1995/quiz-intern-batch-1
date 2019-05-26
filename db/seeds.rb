@@ -18,7 +18,7 @@ end
   password = "password"
   User.create!(
     name:  Faker::Name.name,
-    birthday: Time.now,
+    birthday: Faker::Date.birthday(18, 65),
     address: Faker::Address.full_address,
     email: Faker::Internet.email,
     password: password,
