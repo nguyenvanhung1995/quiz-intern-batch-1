@@ -2,22 +2,31 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for [:admin, @user] do |f| %>
-      <%= render "shared/error_messages", object: f.object %>
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-      <%= f.label :birthday %>
-      <%= f.text_field :birthday, class: 'form-control' %>
-      <%= f.label :address %>
-      <%= f.text_field :address, class: 'form-control' %>
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-      <%= f.label :role %>
-      <%= f.text_field :role, class: 'form-control' %>
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %><br>
-      <%= f.submit button, class: "form-control btn btn-success" %>
+    <%= render "shared/error_messages", object: f.object %>
+    <div align="center">
+      <%= image_tag @user.image.url, size: "200" %>
+    </div><br>
+    <div align="center">
+      <div class=" btn btn-primary" style="width: 120px; height: 30px; font-size: 20">
+        <%= f.label :image, "Upload image" %>
+        <%= f.file_field :image, class: "picture", accept: "image/jpeg,image/gif,image/png" %>
+      </div>
+    </div><br>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+    <%= f.label :birthday %>
+    <%= f.text_field :birthday, class: "form-control" %>
+    <%= f.label :address %>
+    <%= f.text_field :address, class: "form-control" %>
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control" %>
+    <%= f.label :role %>
+    <%= f.text_field :role, class: "form-control" %>
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control" %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: "form-control" %><br>
+    <%= f.submit button, class: "form-control btn btn-success" %>
     <% end %>
   </div>
 </div>
