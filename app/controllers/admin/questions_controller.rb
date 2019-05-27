@@ -1,8 +1,8 @@
-class Admin::QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
   before_action :get_question, only: [:show, :edit, :update, :destroy]
 
   def index
-    @questions = Question.all
+    @questions = Question.all.paginate(page: params[:page], per_page: 10)
   end
 
   def show; end

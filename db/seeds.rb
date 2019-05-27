@@ -25,6 +25,7 @@ end
     email: Faker::Internet.email,
     password: password,
     password_confirmation: password)
+end
 
 user_ids = User.pluck(:id)
 categories = Category.select{|category| category.questions.size >= 5}

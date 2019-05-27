@@ -1,12 +1,23 @@
-<h1 align="center"><%= title %></h1>
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for [:admin, @category] do |f| %>
-      <%= render "shared/error_messages", object: f.object %>
-      <%= f.label :name, label %>
-      <%= f.text_field :name, class: "form-control" %>
-      <br>
-      <%= f.submit button, class: "form-control btn btn-success" %>
-    <% end %>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div class="card">
+          <div class="header">
+            <h4 class="title"><%= title %></h4>
+          </div>
+          <div class="content">
+            <%= form_for [:admin, @category], class: "card" do |f| %>
+              <%= render "shared/error_messages", object: f.object %>
+              <%= f.label :name, label %>
+              <%= f.text_field :name, class: "form-control" %>
+              <br>
+              <%= link_to "Back", :back, class: "btn btn-danger btn-sm" %>
+              <%= f.submit button, class: "btn btn-success btn-sm pull-right" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
