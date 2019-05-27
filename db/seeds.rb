@@ -14,3 +14,13 @@ end
   end
   question.answers.create!(content: Faker::Lorem.sentence, is_correct: true)
 end
+28.times do |n|
+  password = "password"
+  User.create!(
+    name:  Faker::Name.name,
+    birthday: Faker::Date.birthday(18, 65),
+    address: Faker::Address.full_address,
+    email: Faker::Internet.email,
+    password: password,
+    password_confirmation: password)
+end
