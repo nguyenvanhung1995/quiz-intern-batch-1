@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   root "static_pages#index"
+  resources :categories, only: :index do
+    resources :tests
+  end
   
   namespace :admin do
     root "dashboards#index"

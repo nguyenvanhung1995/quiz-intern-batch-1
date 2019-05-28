@@ -5,7 +5,7 @@
       <div class="col-md-8 col-md-offset-2">
         <div class="card">
           <div align="center">
-            <%= image_tag @user.image.url, size: "100" %>
+            <%= image_tag @user.image.url, size: "100", class: "user-avatar" %>
           </div>
           <div class="content">
             User name :<%= text_field_tag "name", nil,

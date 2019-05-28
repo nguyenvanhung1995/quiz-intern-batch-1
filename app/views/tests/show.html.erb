@@ -3,9 +3,13 @@
     <div class="card">
       <div class="header">
         <p>
-          <b>User: </b>
-          <%= @test.user ? @test.user.name : "Guest" %>
+          <% if @test.user_id != nil %>
+            <b>User: </b><%= User.find_by(id: @test.user_id).name %>
+          <% else %>
+            <b>Guest</b>
+          <% end %>
         </p>
+        <p><b>Score: </b><%= @test.result %></p>
       </div>
       <div class="content table-full-width">
         <table class="table table-hover">

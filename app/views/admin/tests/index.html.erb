@@ -18,7 +18,7 @@
               <tr>
                 <td><%= test.id %></td>
                 <td><%= test.questions.first.category.name %></td>
-                <td><%= test.user.name %></td>
+                <td><%= test.user ? test.user.name : "Guest" %></td>
                 <td><%= test.result %> / 5</td>
                 <td>
                   <%= link_to admin_test_path(test) do %>

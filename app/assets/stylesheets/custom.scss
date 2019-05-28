@@ -49,9 +49,10 @@ p {
       z-index: 2;
       transition: color 200ms ease-in;
       overflow: hidden;
+      font-weight: 300 !important;
 
       &:before {
-        width: 10px;
+        width: 24px;
         height: 10px;
         border-radius: 50%;
         content: '';
@@ -113,11 +114,11 @@ p {
     }
   }
 
-.edit_question {
+.new_test {
   padding: 0 16px;
-  max-width: 550px;
+  max-width: 100%;
   margin: 50px auto;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
   line-height: 36px;
 }
