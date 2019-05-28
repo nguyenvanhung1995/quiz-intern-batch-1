@@ -1,16 +1,31 @@
 <% provide :title, "Dashboard" %>
-<div class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="header">
-            <h4 class="title">Edit Profile</h4>
-          </div>
-          <div class="content">
-          </div>
-        </div>
-      </div>
+<div class="col-md-4">
+  <div class="card">
+    <div class="header">
+      <h4 class="title">Users:</h4>
+    </div>
+    <div class="content">
+      <p><b><%= User.all.size %></b></p>
+    </div>
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="card">
+    <div class="header">
+      <h4 class="title">Test:</h4>
+    </div>
+    <div class="content">
+      <p><b><%= Test.all.size %></b></p>
+    </div>
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="card">
+    <div class="header">
+      <h4 class="title">Category:</h4>
+    </div>
+    <div class="content">
+      <p><b><%= Category.all.size %></b></p>
     </div>
   </div>
 </div>

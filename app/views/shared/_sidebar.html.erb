@@ -1,0 +1,51 @@
+<div class="sidebar" data-color="orange" data-image= <%= image_path ("/assets/sidebar-5.jpg")%>>
+  <!--
+
+            Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+            Tip 2: you can also add an image using data-image tag
+
+        -->
+  <div class="sidebar-wrapper">
+    <div class="logo">
+      <%= link_to root_path, class: "simple-text" do %>
+        Quizzes
+      <% end %>
+    </div>
+    <ul class="nav">
+      <br>
+      <li>
+        <%= link_to "#" do %>
+          <i class="pe-7s-joy"></i>
+          <p>Play Quiz</p>
+        <% end %>
+      </li>
+      <br>
+      <li>
+        <%= link_to "#" do %>
+          <i class="pe-7s-door-lock"></i>
+          <p>Log in</p>
+        <% end %>
+      </li>
+      <br>
+      <li>
+        <%= link_to "#" do %>
+          <i class="pe-7s-note2"></i>
+          <p>History</p>
+        <% end %>
+      </li>
+      <br>
+      <li>
+        <%= link_to "#" do %>
+          <i class="pe-7s-user"></i>
+          <p>Profile</p>
+        <% end %>
+      </li>
+      <li class="active-pro">
+        <%= link_to "#" do %>
+            <i class="pe-7s-add-user"></i>
+            <p>Create new user</p>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>

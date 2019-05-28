@@ -16,9 +16,13 @@
       <% flash.each do |message_type, message| %>
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
+      <div class="content">
+        <div class="container-fluid">
 
-      <%= yield %>
-
+          <%= yield %>
+          
+        </div>
+      </div>
       <%= render "admin/shared/footer" %>
     </div>
   </div>
