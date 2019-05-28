@@ -28,7 +28,8 @@
       <%= f.password_field :password, class: "form-control" %>
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, class: "form-control" %><br>
-      <%= f.submit button, class: "form-control btn btn-success" %>
+      <%= link_to "Back", :back, class: "btn btn-danger btn-sm" %>
+      <%= f.submit button, class: "btn btn-success btn-sm pull-right" %><br>
     <% end %>
   </div>
 </div>
