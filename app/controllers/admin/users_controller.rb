@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::BaseController
-  before_action :find_user, only: [:show]
+  before_action :find_user, only: [:show, :destroy, :update, :edit]
   def index
     @users = User.all.paginate(page: params[:page], per_page: 10)
   end
@@ -44,7 +44,8 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def user_params
-    params.require(:user).permit :name, :birthday, :address, :email, :role, :password, :password_confirmation
+    params.require(:user).permit :name, :birthday, :address, :email, :role,
+      :password, :password_confirmation, :image, :image_cache
   end
 
 end

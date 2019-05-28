@@ -1,26 +1,27 @@
+<% provide :title, "User Information" %>
 <div class="content">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="card">
-          <div class="header">
-            <h4 class="title"><%= @user.name %></h4>
+          <div align="center">
+            <%= image_tag @user.image.url, size: "100" %>
           </div>
           <div class="content">
-            User name :
-            <%= text_field_tag "name", nil, placeholder: "#{@user.name}", 
+            User name :<%= text_field_tag "name", nil,
+              placeholder: "#{@user.name}",
               disabled: true, class: "form-control" %><br>
-            Birthday :
-            <%= text_field_tag "birthday", nil, placeholder: "#{@user.birthday}", 
+            Birthday :<%= text_field_tag "birthday", nil,
+              placeholder: "#{@user.birthday}",
               disabled: true, class: "form-control" %><br>
-            Address :
-            <%= text_field_tag "address", nil, placeholder: "#{@user.address}", 
+            Address :<%= text_field_tag "address", nil,
+              placeholder: "#{@user.address}",
               disabled: true, class: "form-control" %><br>
-            Email :
-            <%= email_field_tag "email", nil, placeholder: "#{@user.email}", 
+            Email :<%= email_field_tag "email", nil,
+              placeholder: "#{@user.email}",
               disabled: true, class: "form-control" %><br>
-            <%= link_to "Back to list user", admin_users_path, 
-              class: "form-control btn btn-success" %>
+            <%= link_to "Back to list user",
+              admin_users_path, class: "form-control btn btn-success" %>
           </div>
         </div>
       </div>

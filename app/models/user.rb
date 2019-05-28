@@ -6,5 +6,15 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, on: :create
+  validate :image_size
+  mount_uploader :image, PictureUploader
+
+  private
+
+  def image_size
+    if image.size > 2.megabytes
+      errors.add(:image, "Should be less than 2 MB !")
+    end
+  end
 end
