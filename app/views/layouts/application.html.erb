@@ -3,13 +3,26 @@
 <head>
   <title>QuizInternBatch1</title>
   <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
 </head>
 <body>
-  <% flash.each do |message_type, message| %>
-    <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-  <% end %>
-  <%= yield %>
+  <div class="wrapper">
+    <%= render "shared/sidebar" %>
+    <div class="main-panel">
+      <%= render "shared/header" %>
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+      <% end %>
+      <div class="content">
+        <div class="container-fluid">
+
+          <%= yield %>
+
+        </div>
+      </div>
+      <%= render "admin/shared/footer" %>
+    </div>
+  </div>
 </body>
 </html>

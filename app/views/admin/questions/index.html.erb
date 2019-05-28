@@ -1,55 +1,51 @@
 <% provide :title, "Quizzes list" %>
-<div class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="header">
-            <%= link_to "Create new", new_admin_question_path, 
-              class: "btn btn-info btn-sm pull-right", 
-              style: "margin-bottom: 10px;" %>
-          </div>
-          <div class="content table-full-width">
-            <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th>Question</th>
-                  <th>Category</th>
-                  <th>Edit</th>
-                  <th>Delete</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @questions.each do |question| %>
-                  <tr>
-                    <td>
-                      <%= link_to question.content, 
-                        admin_question_path(question) %>
-                    </td>
-                    <td>
-                      <%= question.category.name %>
-                    </td>
-                    <td>
-                      <%= link_to edit_admin_question_path(question) do %>
-                        <i class="fas fa-tools"></i>
-                      <% end %>
-                    </td>
-                    <td>
-                      <%= link_to admin_question_path(question), 
-                      method: :delete, data: { confirm: "You sure?" } do %>
-                        <i class="far fa-trash-alt"></i>
-                      <% end %>
-                    </td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <%= will_paginate(@users, 
-          :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, 
-          class: "justify-content-end", style: "float: right") %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="header">
+        <%= link_to "Create new", new_admin_question_path, 
+          class: "btn btn-info btn-sm pull-right", 
+          style: "margin-bottom: 10px;" %>
+      </div>
+      <div class="content table-full-width">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Category</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @questions.each do |question| %>
+              <tr>
+                <td>
+                  <%= link_to question.content, 
+                    admin_question_path(question) %>
+                </td>
+                <td>
+                  <%= question.category.name %>
+                </td>
+                <td>
+                  <%= link_to edit_admin_question_path(question) do %>
+                    <i class="fas fa-tools"></i>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to admin_question_path(question), 
+                  method: :delete, data: { confirm: "You sure?" } do %>
+                    <i class="far fa-trash-alt"></i>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div>
+    <%= will_paginate(@users, 
+      :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, 
+      class: "justify-content-end", style: "float: right") %>
   </div>
 </div>

@@ -1,40 +1,36 @@
 <div class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <div class="card">
-          <div class="header">
-            <h4 class="title"><%= title %></h4>
+  <div class="col-md-8 col-md-offset-2">
+    <div class="card">
+      <div class="header">
+        <h4 class="title"><%= title %></h4>
+      </div>
+      <div class="content">
+        <%= form_for [:admin, @question], html: { multipart: true } do |f| %>
+          <%= render "shared/error_messages", object: f.object %>
+          <%= f.label :category, "Category" %>
+          <%= f.select :category_id, Category.pluck(:name, :id), {}, 
+            class: "form-control" %><br>
+          <%= f.label :content, "Question" %>
+          <%= f.text_area :content, class: "form-control"%><br>
+          <% if @question.image? %>
+            <%= image_tag @question.image.thumb.url %>
+          <% end %><br>
+          <div class="upload_button mt-2">
+            <%= f.label :image, "Choose image" %>
+            <%= f.file_field :image, class: "picture", 
+              accept: "image/jpeg,image/gif,image/png" %>
           </div>
-          <div class="content">
-            <%= form_for [:admin, @question], html: { multipart: true } do |f| %>
-              <%= render "shared/error_messages", object: f.object %>
-              <%= f.label :category, "Category" %>
-              <%= f.select :category_id, Category.pluck(:name, :id), {}, 
-                class: "form-control" %><br>
-              <%= f.label :content, "Question" %>
-              <%= f.text_area :content, class: "form-control"%><br>
-              <% if @question.image? %>
-                <%= image_tag @question.image.thumb.url %>
-              <% end %><br>
-              <div class="upload_button mt-2">
-                <%= f.label :image, "Choose image" %>
-                <%= f.file_field :image, class: "picture", 
-                  accept: "image/jpeg,image/gif,image/png" %>
-              </div>
-              <%= f.hidden_field :image_cache %><br>
-              <%= f.fields_for :answers do |builder| %>
-                <%= builder.label :content, "Answer" %>
-                <%= builder.label :is_correct, "Correct Answer", 
-                  style: "float: right; margin-left: 10px;" %>
-                <%= builder.check_box :is_correct, style: "float: right" %>
-                <%= builder.text_area :content, class: "form-control" %><br>
-              <% end %>
-              <%= link_to "Back", :back, class: "btn btn-danger btn-sm" %>
-              <%= f.submit button, class: "btn btn-success btn-sm pull-right" %>
-            <% end %>
-          </div>
-        </div>
+          <%= f.hidden_field :image_cache %><br>
+          <%= f.fields_for :answers do |builder| %>
+            <%= builder.label :content, "Answer" %>
+            <%= builder.label :is_correct, "Correct Answer", 
+              style: "float: right; margin-left: 10px;" %>
+            <%= builder.check_box :is_correct, style: "float: right" %>
+            <%= builder.text_area :content, class: "form-control" %><br>
+          <% end %>
+          <%= link_to "Back", :back, class: "btn btn-danger btn-sm" %>
+          <%= f.submit button, class: "btn btn-success btn-sm pull-right" %>
+        <% end %>
       </div>
     </div>
   </div>
