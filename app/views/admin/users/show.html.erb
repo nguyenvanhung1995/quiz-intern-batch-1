@@ -1,4 +1,4 @@
-<h1>User Information</h1>
+<% provide :title, "User Information" %>
 <div class="content">
   <div class="container-fluid">
     <div class="row">
@@ -9,14 +9,19 @@
           </div>
           <div class="content">
             User name :<%= text_field_tag "name", nil,
-              placeholder: "#{@user.name}", disabled: true, class: "form-control" %><br>
+              placeholder: "#{@user.name}",
+              disabled: true, class: "form-control" %><br>
             Birthday :<%= text_field_tag "birthday", nil,
-              placeholder: "#{@user.birthday}", disabled: true, class: "form-control" %><br>
+              placeholder: "#{@user.birthday}",
+              disabled: true, class: "form-control" %><br>
             Address :<%= text_field_tag "address", nil,
-              placeholder: "#{@user.address}", disabled: true, class: "form-control" %><br>
+              placeholder: "#{@user.address}",
+              disabled: true, class: "form-control" %><br>
             Email :<%= email_field_tag "email", nil,
-              placeholder: "#{@user.email}", disabled: true, class: "form-control" %><br>
-            <%= link_to "Back to list user", admin_users_path, class: "form-control btn btn-success" %>
+              placeholder: "#{@user.email}",
+              disabled: true, class: "form-control" %><br>
+            <%= link_to "Back to list user",
+              admin_users_path, class: "form-control btn btn-success" %>
           </div>
         </div>
       </div>
