@@ -1,14 +1,12 @@
-<% provide :title, "Test list" %>
+<% provide :title, "Test history" %>
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-8 col-md-offset-2">
     <div class="card">
       <div class="content table-full-width">
         <table class="table table-hover">
           <thead>
             <tr>
-              <th>Test_id</th>
               <th>Category</th>
-              <th>User</th>
               <th>Result</th>
               <th>Detail</th>
             </tr>
@@ -16,12 +14,10 @@
           <tbody>
             <% @tests.each do |test| %>
               <tr>
-                <td><%= test.id %></td>
                 <td><%= test.questions.first.category.name %></td>
-                <td><%= test.user ? test.user.name : "Guest" %></td>
                 <td><%= test.result %> / 5</td>
                 <td>
-                  <%= link_to admin_test_path(test) do %>
+                  <%= link_to current_test_path(test) do %>
                     <i class="fas fa-info-circle"></i>
                   <% end %>
                 </td>

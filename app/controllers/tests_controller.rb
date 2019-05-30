@@ -1,5 +1,11 @@
 class TestsController < ApplicationController
   before_action :get_category, only: [:new, :create]
+  before_action :logged_in_user, only: :index
+
+  def index
+    @tests = Test.current_history(current_user).paginate(page: params[:page], 
+      per_page: 10)
+  end
 
   def show
     @test = Test.find params[:id]
@@ -14,7 +20,7 @@ class TestsController < ApplicationController
     @test = Test.new test_params
     @test.result = check_answer
     if @test.save
-      redirect_to category_test_path(@category.id, @test)
+      redirect_to current_test_path(@test)
     else
       render :new
     end
@@ -23,7 +29,7 @@ class TestsController < ApplicationController
   private
 
   def test_params
-    params.require(:test).permit :result, 
+    params.require(:test).permit :result, :user_id, 
       detail_tests_attributes: [:id, :answer_id, :question_id]
   end
 

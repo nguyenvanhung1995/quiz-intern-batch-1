@@ -1,5 +1,8 @@
 <h2>Quiz about: <%= @category.name %></h2>
 <%= form_for [:category, @test], html: { multipart: true } do |f| %>
+  <% if logged_in? %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  <% end %>
   <% @categories = @category.questions.sample(5) %>
   <% @categories.each do |question| %>
     <%= f.fields_for :detail_tests do |dt|%>

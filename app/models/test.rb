@@ -5,4 +5,6 @@ class Test < ApplicationRecord
   belongs_to :user, optional: true
 
   accepts_nested_attributes_for :detail_tests
+
+  scope :current_history, -> (user){ where user_id: user.id }
 end
