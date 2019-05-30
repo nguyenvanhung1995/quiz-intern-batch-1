@@ -20,32 +20,34 @@
         <% end %>
       </li>
       <br>
-      <li>
-        <%= link_to "#" do %>
-          <i class="pe-7s-door-lock"></i>
-          <p>Log in</p>
-        <% end %>
-      </li>
-      <br>
-      <li>
-        <%= link_to "#" do %>
-          <i class="pe-7s-note2"></i>
-          <p>History</p>
-        <% end %>
-      </li>
-      <br>
-      <li>
-        <%= link_to "#" do %>
-          <i class="pe-7s-user"></i>
-          <p>Profile</p>
-        <% end %>
-      </li>
-      <li class="active-pro">
-        <%= link_to admin_root_path do %>
-            <i class="pe-7s-id"></i>
-            <p>Dash board</p>
-        <% end %>
-      </li>
+      <% if logged_in? %>
+        <li>
+          <%= link_to "#" do %>
+            <i class="pe-7s-note2"></i>
+            <p>History</p>
+          <% end %>
+        </li>
+        <br>
+        <li class="active-pro">
+          <%= link_to user_path(current_user) do %>
+            <i class="pe-7s-user"></i>
+            <p>Profile</p>
+          <% end %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to login_path do %>
+            <i class="pe-7s-door-lock"></i>
+            <p>Log in</p>
+          <% end %>
+        </li><br>
+        <li class="active-pro">
+          <%= link_to signup_path do %>
+              <i class="pe-7s-add-user"></i>
+              <p>Create new account</p>
+          <% end %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>
