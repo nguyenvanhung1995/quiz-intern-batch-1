@@ -17,6 +17,6 @@ class PictureUploader < CarrierWave::Uploader::Base
   end
 
   def default_url
-    "gra.jpg"
+    "gra.jpeg"
   end
 end

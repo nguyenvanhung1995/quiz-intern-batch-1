@@ -1,0 +1,64 @@
+<% provide :title, "Edit Profile" %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="card">
+      <div class="content">
+        <%= form_for @user do |f| %>
+          <%= render "shared/error_messages", object: f.object %>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <%= f.label :name, "Username" %>
+                <%= f.text_field :name, placeholder: "Username", class: "form-control" %>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <%= f.label :email, "Email Address" %>
+                <%= f.email_field :email, placeholder: "Email Address", class: "form-control" %>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="form-group">
+                <%= f.label :birthday, "Birthday" %>
+                <%= f.date_field :birthday, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="upload_button" 
+                style="height: 24px;width: 120px;margin-top: 34px;">
+                <%= f.label :image, "Update avatar" %>
+                <%= f.file_field :image, class: "picture", 
+                  accept: "image/jpeg,image/gif,image/png" %>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="form-group">
+                <%= f.label :address, "Address" %>
+                <%= f.text_field :address, placeholder: "Where do you live?", class: "form-control" %>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= f.label :password, "Password" %>
+                <%= f.password_field :password, placeholder: "Leave blank if you don't wanna change", class: "form-control" %>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <%= f.label :password_confirmation, "Password Confirmation" %>
+                <%= f.password_field :password_confirmation, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+          <%= f.submit "Update Profile", class: "btn btn-info btn-fill pull-right" %>
+          <div class="clearfix"></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
