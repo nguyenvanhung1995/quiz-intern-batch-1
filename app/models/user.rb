@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }, on: :create
   validate :image_size
   mount_uploader :image, PictureUploader
+  enum role: [:user, :admin]
 
   private
 

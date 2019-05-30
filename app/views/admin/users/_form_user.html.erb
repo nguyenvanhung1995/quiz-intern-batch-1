@@ -13,7 +13,7 @@
               <div align="center">
                 <div class=" btn btn-primary"
                 style="width: 120px; height: 30px; font-size: 20">
-                <%= f.label :image, "Upload image" %>
+                <%= f.label :image, "Upload image", class: "text-white" %>
                 <%= f.file_field :image, class: "picture",
                 accept: "image/jpeg,image/gif,image/png" %>
                 </div>
@@ -26,6 +26,9 @@
               <%= f.text_field :address, class: "form-control" %>
               <%= f.label :email %>
               <%= f.email_field :email, class: "form-control" %>
+              <%= f.label :role %>
+              <%= f.select :role, ["admin", "user"], {},
+                class: "form-control" %><br>
               <% if button == "Create" %>
                 <%= f.label :password %>
                 <%= f.password_field :password, class: "form-control" %>
