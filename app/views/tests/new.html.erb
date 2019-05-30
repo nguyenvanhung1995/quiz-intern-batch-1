@@ -1,0 +1,31 @@
+<h2>Quiz about: <%= @category.name %></h2>
+<%= form_for [:category, @test], html: { multipart: true } do |f| %>
+  <% @categories = @category.questions.sample(5) %>
+  <% @categories.each do |question| %>
+    <%= f.fields_for :detail_tests do |dt|%>
+      <div class="row">
+          <div class="card">
+            <div class="header">
+              <h4 class="title"><% question %></h4>
+            </div>
+            <div class="content full-width">
+              <%= dt.hidden_field :question_id, value: question.id %>
+              <% if question.image? %>
+                <div align="center">
+                  <%= image_tag question.image.thumb.url %>
+                </div>
+              <% end %><br>
+              <%= question.content %><br>
+              <% question.answers.each do |answer| %>
+                <div class="inputGroup">
+                  <%= dt.radio_button :answer_id, answer.id %>
+                  <%= dt.label "answer_id_#{answer.id}", answer.content %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+      </div>
+    <% end %>
+  <% end %>
+  <%= f.submit "Done", class: "btn btn-primary btn-block" %>
+<% end %>

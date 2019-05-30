@@ -1,4 +1,27 @@
-<div class="content">
-  <div class="container-fluid">
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="header">
+        <h4 class="title">Quiz's Category</h4>
+        <p class="category">Choose to play! </p>
+      </div>
+      <div class="content all-icons">
+        <div class="row">
+          <% @categories.each do |category| %>
+            <%= link_to new_category_test_path(category) do %>
+              <div class="font-icon-list col-lg-2 col-md-3 
+                col-sm-4 col-xs-6 col-xs-6">
+                <div class="font-icon-detail">
+                  <i class="pe-7s-help1" 
+                  style="color: #<%= Random.new.bytes(3).unpack("H*")[0] %>;">
+                  </i>
+                  <input type="text" value= <%= category.name %>>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
