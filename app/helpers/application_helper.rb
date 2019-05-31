@@ -1,2 +1,32 @@
 module ApplicationHelper
+  def cover_photo
+    ["https://images.unsplash.com/photo-1559197353-37e8e46aacc3?ixlib=rb-1.2.
+      1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1513&q=80", 
+      "https://images.unsplash.com/photo-1559146960-ac79a5f36056?ixlib=rb-1.2.
+      1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80", 
+      "https://images.unsplash.com/photo-1559172897-6f4c3f1128a8?ixlib=rb-1.2.
+      1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80", 
+      "https://images.unsplash.com/photo-1556574771-31370b0232cd?ixlib=rb-1.2.
+      1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80", 
+      "https://images.unsplash.com/photo-1556574771-31370b0232cd?ixlib=rb-1.2.
+      1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80", 
+      "https://images.unsplash.com/photo-1556704503-4e4c76896741?ixlib=rb-1.2.
+      1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", 
+      "https://images.unsplash.com/photo-1556887439-1286f4569d41?ixlib=rb-1.2.
+      1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", 
+      "https://images.unsplash.com/photo-1557518015-14f384c95534?ixlib=rb-1.2.
+      1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", 
+      "https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?ixlib=rb-
+      1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", 
+      "https://images.unsplash.com/photo-1556634862-107d22db86eb?ixlib=rb-1.2.
+      1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", 
+      "https://images.unsplash.com/photo-1555448248-2571daf6344b?ixlib=rb-1.2.
+      1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", 
+      "https://images.unsplash.com/photo-1553949285-bdcb31ec5cba?ixlib=rb-1.2.
+      1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60", 
+      "https://images.unsplash.com/photo-1556856837-de7b06a49293?ixlib=rb-1.2.
+      1&auto=format&fit=crop&w=500&q=60", 
+      "https://images.unsplash.com/photo-1557582409-1dd63153192e?ixlib=rb-1.2.
+      1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"].sample
+  end
 end
