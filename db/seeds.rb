@@ -1,3 +1,8 @@
+User.create!(name:  "admin",
+             email: "admin@gmail.com",
+             password:              "password",
+             password_confirmation: "password",
+             role: "admin")
 3.times do |n|
   name = Faker::Name.name
   Category.create!(name: name)

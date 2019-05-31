@@ -31,7 +31,6 @@ p {
   line-height: 1.7em;
 }
 
-// ===================== Radio button ============================
 .inputGroup {
     background-color: #fff;
     display: block;
@@ -131,9 +130,7 @@ p {
 html {
   box-sizing: border-box;
 }
-// ===================== End Radio button ============================
 
-// ================ Image upload file button ==================
 .picture {
   opacity: 0;
 }
@@ -158,7 +155,6 @@ input#question_image.picture {
   display: none !important;
 }
 
-// ================ Error message ===============
 
 #error_explanation {
   color: red;

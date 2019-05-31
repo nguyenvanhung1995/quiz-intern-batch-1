@@ -1,6 +1,6 @@
 class Admin::QuestionsController < Admin::BaseController
   before_action :get_question, only: [:show, :edit, :update, :destroy]
-
+  before_action :authorize, only: [:show, :destroy, :update, :edit, :index]
   def index
     @questions = Question.all.paginate(page: params[:page], per_page: 10)
   end

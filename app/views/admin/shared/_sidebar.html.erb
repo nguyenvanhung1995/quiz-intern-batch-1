@@ -1,53 +1,74 @@
 <div class="sidebar" data-color="black" data-image= <%= image_path ("/assets/sidebar-4.jpg")%>>
-  <!--
-
-            Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-            Tip 2: you can also add an image using data-image tag
-
-        -->
   <div class="sidebar-wrapper">
     <div class="logo">
       <%= link_to admin_root_path, class: "simple-text" do %>
-        Quiz
+      Quiz
       <% end %>
     </div>
     <ul class="nav">
-      <li>
-        <%= link_to admin_root_path do %>
-          <i class="pe-7s-graph"></i>
-          <p>Dashboard</p>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to admin_users_path do %>
-          <i class="pe-7s-user"></i>
-          <p>User list</p>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to admin_tests_path do %>
-          <i class="pe-7s-note2"></i>
-          <p>Test list</p>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to admin_categories_path do %>
-          <i class="pe-7s-target"></i>
-          <p>Categories</p>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to admin_questions_path do %>
-          <i class="pe-7s-pen"></i>
-          <p>Quizzes</p>
-        <% end %>
-      </li>
-      <li class="active-pro">
-        <%= link_to root_path do %>
-            <i class="pe-7s-users"></i>
-            <p>User views</p>
-        <% end %>
-      </li>
+      <% unless logged_in? %>
+        <li>
+          <%= link_to admin_login_path do %>
+            <i class="pe-7s-graph" ></i>
+            <p>Dashboard</p>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_login_path do %>
+            <i class="pe-7s-user"></i>
+            <p>User list</p>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_login_path do %>
+            <i class="pe-7s-note2"></i>
+            <p>Test list</p>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_login_path do %>
+            <i class="pe-7s-target"></i>
+            <p>Categories</p>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_login_path do %>
+            <i class="pe-7s-pen"></i>
+            <p>Quizzes</p>
+          <% end %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to admin_root_path do %>
+            <i class="pe-7s-graph" ></i>
+            <p>Dashboard</p>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_users_path do %>
+            <i class="pe-7s-user"></i>
+            <p>User list</p>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_tests_path do %>
+            <i class="pe-7s-note2"></i>
+            <p>Test list</p>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_categories_path do %>
+            <i class="pe-7s-target"></i>
+            <p>Categories</p>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to admin_questions_path do %>
+            <i class="pe-7s-pen"></i>
+            <p>Quizzes</p>
+          <% end %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>

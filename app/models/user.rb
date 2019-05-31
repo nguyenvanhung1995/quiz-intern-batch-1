@@ -11,6 +11,7 @@ class User < ApplicationRecord
   validate :image_size
   mount_uploader :image, PictureUploader
   enum role: [:user, :admin]
+  attr_accessor :remember_token
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

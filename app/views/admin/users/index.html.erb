@@ -1,53 +1,60 @@
 <% provide :title, "User list" %>
-<div class="row">
-  <div class="col-md-12">
-    <div class="card">
-      <div class="header">
-        <%= link_to "Create new", new_admin_user_path, 
-          class: "btn btn-info btn-sm pull-right", 
-          style: "margin-bottom: 10px;" %>
-      </div>
-      <div class="content table-full-width">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>User name</th>
-              <th>Birth day</th>
-              <th>Address</th>
-              <th>Email</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @users.each do |user| %>
-              <tr>
-                <td><%= user.id %></td>
-                <td>
-                  <%= image_tag user.image.url, size: "40", class: "user-avatar" %>
-                  <%= link_to user.name, admin_user_path(user) %>
-                </td>
-                <td><%= user.birthday %></td>
-                <td><%= user.address %></td>
-                <td><%= user.email %></td>
-                <td>
-                  <%= link_to edit_admin_user_path(user) do %>
-                    <i class="fas fa-tools"></i>
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="header">
+            <%= link_to "Create new", new_admin_user_path,
+              class: "btn btn-info btn-sm pull-right",
+              style: "margin-bottom: 10px;" %>
+            </div>
+            <div class="content table-full-width">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>User name</th>
+                    <th>Birth day</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @users.each do |user| %>
+                    <tr>
+                      <td><%= user.id %></td>
+                      <td>
+                        <%= image_tag user.image.url, size: "40" %>
+                        <%= link_to user.name, admin_user_path(user) %>
+                      </td>
+                      <td><%= user.birthday %></td>
+                      <td><%= user.address %></td>
+                      <td><%= user.email %></td>
+                      <td><%= user.role %></td>
+                      <td>
+                        <%= link_to edit_admin_user_path(user) do %>
+                          <i class="fas fa-tools" ></i>
+                        <% end %>
+                      </td>
+                      <td>
+                        <%= link_to admin_user_path(user), method: :delete,
+                          data: { confirm: "You are deleting user ! You sure ?" } do %>
+                          <i class="far fa-trash-alt" style="color: red;" ></i>
+                        <% end %>
+                      </td>
+                    </tr>
                   <% end %>
-                </td>
-                <td>
-                  <%= link_to admin_user_path(user), method: :delete,
-                  data: { confirm: "You are deleting user ! You sure ?" } do %>
-                    <i class="far fa-trash-alt" style="color: red;"></i>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <%= will_paginate(@users, 
+          :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer,
+          class: "justify-content-end", style: "float: right") %>
       </div>
     </div>
-    <%= will_paginate(@users, 
-      :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, 
-      class: "justify-content-end", style: "float: right") %>
   </div>
 </div>
